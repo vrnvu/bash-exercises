@@ -9,7 +9,8 @@ log()    { echo "[INFO] $*"; }
 error()  { echo "[ERROR] $*" >&2; }
 
 usage() {
-	log | cat <<< "Usage: $(basename "$0") [OPTIONS]
+	# <<< is the recommended practice for strings
+	cat <<< "Usage: $(basename "$0") [OPTIONS]
 	Options:
   --force       Delete existing '$directory' before creating it again
   --help        Show this help message"
@@ -37,6 +38,8 @@ for arg in "$@"; do
 	esac
 done
 
+# [[ is the recommended testing command
+# "$directory" recommneded instead of $directory
 if [[ -d "$directory" ]]; then
 	if $force; then
 		log "$directory already exists in $curr_folder, will be replaced"
