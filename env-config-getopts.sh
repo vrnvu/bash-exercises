@@ -8,6 +8,7 @@ usage() {
     exit 1
 }
 
+# getopts its designed for short opts, its not recommended to try to hack long here
 while getopts ":e:" option; do
     case $option in
         e)
