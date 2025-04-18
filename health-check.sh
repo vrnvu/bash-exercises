@@ -1,12 +1,21 @@
 #!/opt/homebrew/bin/bash
 set -euo pipefail
 
-host=google.com
+host=localhost:3141
 count=1
 seconds=1
+max_retry=5
+retry_delay_seconds=1
 
-if ping -c $count -i $seconds $host &> /dev/null; then
-    exit 0
-else
-    exit 1
-fi
+retry=1
+while (( retry <= max_retry )); do
+    echo "Retry $retry: pinging $host..."
+    if ping -c $count -i $seconds $host ; then
+        exit 0
+    else
+        sleep "$retry_delay_seconds"
+        ((retry++))
+    fi
+done
+
+exit 1
