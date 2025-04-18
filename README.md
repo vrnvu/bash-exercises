@@ -35,6 +35,12 @@ Key Concepts: $?, if, exit, echo
 
 ⸻
 
+🧪 Test Automation in parallel
+
+Modify the previous exercise to run tests in parallel
+
+⸻
+
 🔄 File Management
 
 🧪 Exercise: Write a script that:
