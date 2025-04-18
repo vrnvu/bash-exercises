@@ -26,7 +26,6 @@ success_with_args() {
 
 fail() {
     echo "test fail"
-    sleep 1 # simulate work
     return 1
 }
 
