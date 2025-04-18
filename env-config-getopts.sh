@@ -9,6 +9,7 @@ usage() {
 }
 
 # getopts its designed for short opts, its not recommended to try to hack long here
+# https://stackoverflow.com/questions/12022592/how-can-i-use-long-options-with-the-bash-getopts-builtin
 while getopts ":e:" option; do
     case $option in
         e)
