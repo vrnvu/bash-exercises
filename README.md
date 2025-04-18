@@ -27,9 +27,9 @@ Key Concepts: mkdir -p, touch, if, functions
 🧪 Test Automation
 
 🧪 Exercise: Write a script that:
-	- Runs a test command (e.g., pytest or echo "Running tests")
-	- Exits with failure if it fails (exit 1)
-	- Otherwise prints “Deploying…”
+	-Runs a test command (e.g., pytest or echo "Running tests")
+	-Exits with failure if it fails (exit 1)
+	-Otherwise prints “Deploying…”
 
 Key Concepts: $?, if, exit, echo
 
