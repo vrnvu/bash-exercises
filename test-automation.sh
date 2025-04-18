@@ -21,6 +21,7 @@ main() {
     sucess
     fail
     sucess # unracheable, fail returns 1, the `set -euo pipefail` will exit
+    # set -e ensures any non-zero return kills the script, no need for exit in helpers
 }
 
 main
