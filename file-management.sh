@@ -5,13 +5,13 @@ file_backup=README.md
 dir_backup=backup
 ts=$(date '+%Y-%m-%d')
 
-create_dir() {
+function create_dir() {
     if [[ ! -d "$1" ]]; then
         mkdir -p "$1"
     fi
 }
 
-assert_file_exists() {
+function assert_file_exists() {
     if [[ ! -f "$1" ]]; then
         echo "'$1' does not exit"
         exit 1

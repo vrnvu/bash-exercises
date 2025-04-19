@@ -3,7 +3,7 @@ set -euo pipefail
 
 curr_env=""
 
-usage() {
+function usage() {
     echo "usage: $0 -e (DEV, PRE, PRO)"
     exit 1
 }

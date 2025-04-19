@@ -6,17 +6,17 @@
 
 set -euo pipefail
 
-sucess() {
+function sucess() {
     echo "test passes"
     return 0
 }
 
-fail() {
+function fail() {
     echo "test fail"
     return 1
 }
 
-main() {
+function main() {
     sucess
     sucess
     fail

@@ -1,25 +1,25 @@
 #!/opt/homebrew/bin/bash
 set -euo pipefail
 
-success() {
+function success() {
     echo "test passes"
     sleep 1 # simulate work
     return 0
 }
 
-success_with_args() {
+function success_with_args() {
     sleep 1
     [[ $1 == "expected" ]] || return 1
     return 0
 }
 
-fail() {
+function fail() {
     echo "test fail"
     sleep 1 # simulate work
     return 1
 }
 
-run_test() {
+function run_test() {
     local name=$1
     shift
     echo "[RUNNING] $name"
@@ -32,7 +32,7 @@ run_test() {
     fi
 }
 
-main() {
+function main() {
     run_test success success &
     pid1=$!
     

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Handle interrupt from failed test
-cleanup() {
+function cleanup() {
     echo "[!] Cleaning up. A test failed."
     # Notice this also kills the shell that launch the script
     jobs -p | xargs kill 2>/dev/null || true
@@ -12,24 +12,24 @@ cleanup() {
 # we are using SIGUSR1
 trap cleanup SIGUSR1
 
-success() {
+function success() {
     echo "test passes"
     sleep 2 # simulate work
     return 0
 }
 
-success_with_args() {
+function success_with_args() {
     sleep 2
     [[ $1 == "expected" ]] || return 1
     return 0
 }
 
-fail() {
+function fail() {
     echo "test fail"
     return 1
 }
 
-run_test() {
+function run_test() {
     local name=$1
     shift
     echo "[RUNNING] $name"
@@ -44,7 +44,7 @@ run_test() {
     fi
 }
 
-main() {
+function main() {
     run_test success success &
     pid1=$!
     

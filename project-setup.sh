@@ -5,10 +5,10 @@ directory=my_app
 curr_folder=$(basename "${PWD}")
 force=false
 
-log()    { echo "[INFO] $*"; }
-error()  { echo "[ERROR] $*" >&2; }
+function log()    { echo "[INFO] $*"; }
+function error()  { echo "[ERROR] $*" >&2; }
 
-usage() {
+function usage() {
 	# <<< is the recommended practice for strings
 	cat <<< "Usage: $(basename "$0") [OPTIONS]
 	Options:
@@ -16,14 +16,14 @@ usage() {
   --help        Show this help message"
 }
 
-create_dir() {
+function create_dir() {
 	mkdir -p "$1" || {
 		error "failed to create dir: $1"
 		exit 1
 	}
 }
 
-create_file() {
+function create_file() {
 	touch "$1" || {
 		error "failed to create file: $1"
 		exit 1
