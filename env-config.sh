@@ -7,7 +7,9 @@ if [[ $# != 1 ]]; then
 fi
 
 curr_env=""
-for arg in "$@"; do
+# this is equivalent to
+# for arg in "$@"; do
+for arg; do
     case $arg in
         DEV) curr_env="DEV";;
         PRE) curr_env="PRE";;

@@ -30,7 +30,9 @@ create_file() {
 	}
 }
 
-for arg in "$@"; do
+# Idiom for
+# for arg in "$@"; do
+for arg; do
 	case $arg in
 		--force) force=true ;;
 		--help) usage ;;
