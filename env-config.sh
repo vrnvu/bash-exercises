@@ -6,19 +6,19 @@ if [[ $# != 1 ]]; then
     exit 1
 fi
 
-curr_env="UNSET"
+curr_env=""
 for arg in "$@"; do
     case $arg in
-        dev) curr_env="DEV";;
-        pre) curr_env="PRE";;
-        pro) curr_env="PRO";;
+        DEV) curr_env="DEV";;
+        PRE) curr_env="PRE";;
+        PRO) curr_env="PRO";;
         *) echo "unknown env: $arg"; exit 1;;
     esac
 done
 
-if [[ "$curr_env" = "UNSET" ]]; then
+if [[ -z "$curr_env" ]]; then
     echo "unreachable curr_env: unset"
     exit 1
 fi
 
-ehco "$curr_env"
+echo "$curr_env"
