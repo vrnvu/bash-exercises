@@ -1,7 +1,7 @@
 #!/opt/homebrew/bin/bash
 set -euo pipefail
 
-curr_env="UNSET"
+curr_env=""
 
 usage() {
     echo "usage: $0 -e (DEV, PRE, PRO)"
@@ -37,7 +37,7 @@ while getopts ":e:" option; do
     esac
 done
 
-if [[ "$curr_env" = "UNSET" ]]; then
+if [[ -z "$curr_env" ]]; then
     echo "environment not set"
     usage
 fi
